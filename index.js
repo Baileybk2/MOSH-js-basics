@@ -167,3 +167,84 @@ const colors = ["red", "green", "blue"]
 for (let color in colors) console.log(colors[color])
 
 // Exercise 7:
+
+// Write a function that takes two numbers and returns the maximum of the two.
+
+let maxOfTwo = (num1, num2) => {
+  if (num1 > num2) {
+    return num1
+  } else {
+    return num2
+  }
+}
+
+// or use ternary..
+// return (num1 > num2) ? num1 : num2
+
+console.log(maxOfTwo(10, 7))
+console.log(maxOfTwo(30, 31))
+console.log(maxOfTwo(1.3, 0.7))
+console.log(maxOfTwo(4, 4))
+
+// Exercise 8:
+
+let isLandscape = (width, height) => {
+  return width > height
+}
+
+console.log(isLandscape(50, 23))
+console.log(isLandscape(2, 58))
+
+// Exercise 9: FIZZBUZZ
+// Divisiible by 3 = Fizz
+// Divisible by 5 = Buzz
+// Divisible by 3 and 5 = FizzBuzz
+// Not? = input
+// not a number => "Not a Number"
+
+let fizzBuzz = (number) => {
+  if (typeof number !== "number") {
+    return "Not a number"
+  } else if (number % 3 === 0 && number % 5 === 0) {
+    return "FizzBuzz"
+  } else if (number % 3 === 0) {
+    return "Fizz"
+  } else if (number % 5 === 0) {
+    return "Buzz"
+  } else {
+    return number
+  }
+}
+
+console.log(fizzBuzz(true))
+console.log(fizzBuzz(9))
+console.log(fizzBuzz(10))
+console.log(fizzBuzz(15))
+console.log(fizzBuzz(4))
+console.log(fizzBuzz("Bailey"))
+
+// Exercise 10: DEMERIT NUMBER
+
+// Speed limit = 70
+// 5km above -> 1 point -> Math.floor()
+// 12 points -> suspended (60 km above)
+
+let checkSpeed = (speed) => {
+  const speedLimit = 70
+  const kmPerPoint = 5
+  if (speed < speedLimit + kmPerPoint) {
+    console.log("Ok")
+  } else {
+    const points = Math.floor((speed - speedLimit) / kmPerPoint)
+    if (points >= 12) {
+      console.log("License Suspended")
+    } else {
+      console.log("Points", points)
+    }
+  }
+}
+
+console.log(checkSpeed(50))
+console.log(checkSpeed(70))
+console.log(checkSpeed(71))
+console.log(checkSpeed(190))
