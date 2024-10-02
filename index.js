@@ -26,6 +26,11 @@ let type = points > 100 ? "gold" : "silver"
 
 console.log(type)
 
+let age = 18
+let canVote = age >= 18 ? "Yes" : "No"
+
+console.log(canVote)
+
 // Logical Operators
 
 console.log(true && true)
@@ -47,3 +52,22 @@ false || "Bailey"
 false || 1
 // 1
 // Falsy & Truthy --> if something isn't Falsy, it's Truthy
+
+// operator precedence
+
+let x = 2 + 3 * 4
+console.log(x)
+
+// Exercise
+
+let a = "red"
+let b = "blue"
+
+// swap vlue of variables
+
+let c = a
+a = b
+b = c
+
+console.log(a)
+console.log(b)
