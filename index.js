@@ -244,7 +244,34 @@ let checkSpeed = (speed) => {
   }
 }
 
-console.log(checkSpeed(50))
-console.log(checkSpeed(70))
-console.log(checkSpeed(71))
-console.log(checkSpeed(190))
+checkSpeed(50)
+checkSpeed(70)
+checkSpeed(71)
+checkSpeed(115)
+checkSpeed(190)
+
+// Exercise 11: Show Numbers
+
+let showNumbers = (limit) => {
+  for (let i = 0; i <= limit; i++) {
+    if (i % 2 === 0) {
+      console.log(i, "EVEN")
+    } else {
+      console.log(i, "ODD")
+    }
+  }
+}
+
+showNumbers(10)
+
+// Exercise 12:
+
+const array = [0, null, undefined, "", 0, 1, 2, 3, 4, 5]
+
+let countTruthy = (array) => {
+  let count = 0
+  for (let value of array) if (value) count++
+  return count
+}
+
+console.log(countTruthy(array))
