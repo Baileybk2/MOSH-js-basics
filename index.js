@@ -186,7 +186,7 @@ console.log(maxOfTwo(30, 31))
 console.log(maxOfTwo(1.3, 0.7))
 console.log(maxOfTwo(4, 4))
 
-// Exercise 8:
+// Exercise 8: write a function that returns true if a item is landscape, and false if it is vertical
 
 let isLandscape = (width, height) => {
   return width > height
@@ -250,7 +250,7 @@ checkSpeed(71)
 checkSpeed(115)
 checkSpeed(190)
 
-// Exercise 11: Show Numbers
+// Exercise 11: Show Numbers, write a function that returns EVEN if the number is even and ODD if the number is odd, up to the limit
 
 let showNumbers = (limit) => {
   for (let i = 0; i <= limit; i++) {
@@ -264,7 +264,7 @@ let showNumbers = (limit) => {
 
 showNumbers(10)
 
-// Exercise 12:
+// Exercise 12: write a function that takes an array and returns the count of items in the array that are TRUTHY
 
 const array = [0, null, undefined, "", 0, 1, 2, 3, 4, 5]
 
@@ -275,3 +275,107 @@ let countTruthy = (array) => {
 }
 
 console.log(countTruthy(array))
+
+// Exercise 13: write a function that takes an object and returns the properties that are of type "string"
+
+const movie = {
+  title: "a",
+  year: 2018,
+  rating: 4.5,
+  director: "b",
+}
+
+let showProperties = (object) => {
+  for (let key in object) {
+    if (typeof object[key] === "string") console.log(key, object[key])
+  }
+}
+
+showProperties(movie)
+
+// Exercise 14: write a function that returns all of the multiples of 3 and 5 up to a certain limit added together
+
+let sum = (limit) => {
+  let sum = 0
+
+  for (let i = 0; i <= limit; i++) {
+    if (i % 3 === 0 || i % 5 == 0) {
+      sum += i
+    }
+  }
+  return sum
+}
+
+console.log(sum(10))
+
+// Exercise 15: write a function that takes the average of an array of grades and returns a letter grade based on the average.
+
+// first find average and store in variable
+// find sum
+// then find average by dividing sum by marks.length
+// then compare it to grade ranges
+// 1-59 = F
+// 60-69 = D
+// and so on
+
+const marks = [80, 80, 40]
+
+let calculateGrade = (marks) => {
+  let sum = 0
+
+  for (let mark of marks) {
+    sum += mark
+  }
+
+  let average = sum / marks.length
+
+  if (average < 60) {
+    return "F"
+  } else if (average < 70) {
+    return "D"
+  } else if (average < 80) {
+    return "C"
+  } else if (average < 90) {
+    return "B"
+  } else {
+    return "A"
+  }
+}
+
+console.log(calculateGrade(marks))
+
+// Exercise 16: write a function that prints stars to the console that corresponds to the number of the row
+
+let showStars = (rows) => {
+  for (let row = 1; row <= rows; row++) {
+    pattern = ""
+    for (let i = 0; i < row; i++) {
+      pattern += "*"
+    }
+    console.log(pattern)
+  }
+}
+
+showStars(6)
+
+// Exercise 17: Prime numbers
+// Prime = factors are only 1 and itself, cannot be divided evenly by any other number
+
+let showPrimes = (limit) => {
+  // outer loop is used to iterate through numbers up to limit
+  for (let number = 2; number <= limit; number++) {
+    // inner loop is used for finding the factors of that number
+    let isPrime = true
+    for (let factor = 2; factor < number; factor++) {
+      if (number % factor === 0) {
+        isPrime = false
+        break
+      }
+    }
+    if (isPrime) {
+      console.log(number)
+    }
+  }
+}
+
+showPrimes(10)
