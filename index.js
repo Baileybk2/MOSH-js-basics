@@ -445,3 +445,26 @@ circle3.color = "yellow"
 circle3.draw = function () {}
 
 console.log(circle3)
+
+// MATH methods
+
+Math.random()
+Math.round()
+Math.max()
+Math.min()
+
+// String methods
+
+const message = "This is my first message"
+console.log(message.length)
+console.log(message.includes("my"))
+console.log(message.includes("not"))
+console.log(message.startsWith("This"))
+console.log(message.startsWith("this"))
+console.log(message.indexOf("my"))
+console.log(message.replace("first", "second"))
+console.log(message)
+console.log(message.toUpperCase())
+console.log(message.split(" "))
+
+const anotherString = new String("hi")
