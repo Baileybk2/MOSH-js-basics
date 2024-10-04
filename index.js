@@ -379,3 +379,69 @@ let showPrimes = (limit) => {
 }
 
 showPrimes(10)
+
+// OBJECTS REVIEW
+// object oriented programming (OOP)
+// ex:
+
+const circleCircle = {
+  radius: 1,
+  location: {
+    x: 1,
+    y: 1,
+  },
+  isVisible: true,
+  draw: function () {
+    console.log("draw")
+  },
+}
+
+circleCircle.draw()
+// if a function is part of an object we call that a method
+// drawing the draw method on the circle object
+
+// what if we want to create two cicle objects?
+// FACTORUY FUNCTION
+// we have defined our logic now in only one place so we can make different circle objects
+
+let createCircle = (radius) => {
+  return {
+    radius,
+    draw() {
+      console.log("draw")
+    },
+  }
+}
+
+const circle1 = createCircle(1)
+console.log(circle1)
+circle1.draw()
+
+const circle2 = createCircle(2)
+console.log(circle2)
+
+// CONSTRUCTOR FUNCTION
+// job of this function is to create an object
+
+function Circle(radius) {
+  this.radius = radius
+  this.draw = function () {
+    console.log("draw")
+  }
+}
+
+Circle.call({}, 1)
+
+const another = new Circle(1)
+console.log(another)
+
+// adding properties
+
+const circle3 = {
+  radius: 1,
+}
+
+circle3.color = "yellow"
+circle3.draw = function () {}
+
+console.log(circle3)
