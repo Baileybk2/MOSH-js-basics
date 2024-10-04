@@ -468,3 +468,133 @@ console.log(message.toUpperCase())
 console.log(message.split(" "))
 
 const anotherString = new String("hi")
+
+// template literals
+
+const name = "Nicky"
+const newMessage = `Hi ${name}, 
+
+Thank you for joinging my mailing list.
+
+Regards, 
+Bailey`
+
+console.log(newMessage)
+
+// OBJECT EXERCISES
+
+// Exercise 1: create an object with street, city, and zip code properties, also create function that displays all properties of object along with value
+
+const address = {
+  street: "Whitfield Ave",
+  city: "Sarasota",
+  zipCode: 34243,
+}
+
+let showAddress = (address) => {
+  for (let key in address) {
+    console.log(key, address[key])
+  }
+}
+
+showAddress(address)
+
+// Exercise 2: write both a factory and constructor function to initialize an address object.
+
+// FACTORY function
+
+let createAddress = (street, city, zipCode) => {
+  return {
+    street,
+    city,
+    zipCode,
+  }
+}
+
+const addressOne = createAddress("Whitfield Ave", "Sarasota", 34243)
+console.log(addressOne)
+
+// CONSTRUCTOR function
+
+function Address(street, city, zipCode) {
+  this.street = street
+  this.city = city
+  this.zipCode = zipCode
+}
+
+const anotherAddress = new Address("Whitfield Ave", "Sarasota", 34243)
+console.log(anotherAddress)
+
+// Exercise 3: use the constructor function above to create two address objects
+
+const evenAnotherAddress = new Address("Whitfield Ave", "Sarasota", 34243)
+
+let areEqual = (anotherAddress, evenAnotherAddress) => {
+  return (
+    anotherAddress.street === evenAnotherAddress.street &&
+    anotherAddress.city === evenAnotherAddress.city &&
+    anotherAddress.zipCode === evenAnotherAddress.zipCode
+  )
+}
+
+let areSame = (anotherAddress, evenAnotherAddress) => {
+  return anotherAddress === evenAnotherAddress
+}
+
+console.log(areEqual(anotherAddress, evenAnotherAddress))
+console.log(areSame(anotherAddress, evenAnotherAddress))
+
+let address3 = anotherAddress
+
+console.log(areSame(anotherAddress, address3))
+
+// Exercise
+
+const blogPost = {
+  title: "Hello World",
+  body: "This is my very first blog post!",
+  author: "Bailey Beck",
+  views: 62,
+  comments: [
+    {
+      author: "a",
+      body: "b",
+    },
+    {
+      author: "c",
+      body: "d",
+    },
+  ],
+  isLive: true,
+}
+
+console.log(blogPost)
+
+// Exercise 5: create a constructor function to create a post object that has not been published yet
+
+function Post(title, body, author) {
+  this.title = title
+  this.body = body
+  this.author = author
+  this.views = 0
+  this.comments = []
+  this.isLive = false
+}
+
+let newPost = new Post(
+  "Constructor function",
+  "This is my second blog post.",
+  "Nicky"
+)
+
+console.log(newPost)
+
+// Exercise 6: create a array of objects, a price range object (Yelp). What properties should these objects have?
+
+let priceRanges = [
+  { label: "$", tooltip: "Inexpensive", minPerPerson: 0, maxPerPerson: 10 },
+  { label: "$", tooltip: "Moderate", minPerPerson: 11, maxPerPerson: 20 },
+  { label: "$", tooltip: "Inexpensive", minPerPerson: 21, maxPerPerson: 30 },
+]
+
+let restaurants = [{ averagePerPerson: 5 }]
