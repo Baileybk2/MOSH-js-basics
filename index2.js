@@ -55,3 +55,40 @@ let course = courses.find(function (course) {
 })
 
 console.log(course)
+
+// Removing Elements
+let numbers2 = [1, 2, 3, 4]
+
+// // End
+// const last = numbers2.pop()
+// console.log(last)
+
+// // Beginning
+// const first = numbers2.shift()
+// console.log(first)
+
+// Middle
+numbers2.splice(2, 1)
+console.log(numbers2)
+
+// Emptying an Array
+
+numbers2 = []
+let another = numbers2
+
+console.log(numbers2)
+console.log(another)
+
+// or use numbers2.length = 0 and this will empty the array
+// or use splice method, numnbers2.splice(0, numbers2.length)
+
+// Combining and Slicing Arrays
+
+const first1 = [1, 2, 3]
+const second = [4, 5, 6]
+
+const combined = first1.concat(second)
+console.log(combined)
+
+const slice = combined.slice(3)
+console.log(slice)
