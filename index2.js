@@ -2,22 +2,22 @@
 
 // Adding Elements
 
-const numbers = [3, 4]
+// const numbers = [3, 4]
 
-// End
+// // End
 
-numbers.push(5, 6)
-console.log(numbers)
+// numbers.push(5, 6)
+// console.log(numbers)
 
-// Beginning
+// // Beginning
 
-numbers.unshift(1, 2)
-console.log(numbers)
+// numbers.unshift(1, 2)
+// console.log(numbers)
 
-// Middle
+// // Middle
 
-numbers.splice(2, 0, "a", "b")
-console.log(numbers)
+// numbers.splice(2, 0, "a", "b")
+// console.log(numbers)
 
 // Finding Elements
 
@@ -205,3 +205,132 @@ const sum = nums3.reduce((accumulator, currentValue) => {
 })
 
 console.log(sum)
+
+// reduce example
+const people = [
+  { name: "Bailey", age: 37 },
+  { name: "Nicky", age: 47 },
+  { name: "Kyoshi", age: 27 },
+  { name: "Azula", age: 57 },
+]
+
+const oldestAge = people.reduce((accumulator, currentValue) => {
+  if (currentValue.age > accumulator) {
+    return currentValue.age
+  }
+  return accumulator
+}, 0)
+console.log("Reduce exercise:", oldestAge)
+
+// Exercise 1: Array from Range
+
+let arrayFromRange = (min, max) => {
+  const output = []
+  for (let i = min; i <= max; i++) output.push(i)
+  return output
+}
+
+const numbers = arrayFromRange(-10, 4)
+
+console.log(numbers)
+
+// Exercise 2: Includes
+
+let includes = (array, searchElement) => {
+  for (let element of array) {
+    if (element === searchElement) {
+      return true
+    }
+    return false
+  }
+}
+
+const moreNumbers = [1, 2, 3, 4]
+
+console.log(includes(moreNumbers, 1))
+
+// Exercise 3: Except
+
+let except = (array, excluded) => {
+  const output = []
+  for (let element of array) {
+    if (!excluded.includes(element)) {
+      output.push(element)
+    }
+  }
+  return output
+}
+
+const output = except(moreNumbers, [1, 2])
+console.log(output)
+
+// Exercise 4: Moving an Element
+
+let move = (array, index, offset) => {
+  const output = [...array]
+  const element = output.splice(index, 1)[0]
+  output.splice(index + offset, 0, element)
+  return output
+}
+
+const output2 = move(moreNumbers, 0, 2)
+console.log(output2)
+
+// Exercise 5: Count Occurences
+
+const countOccurances = (array, searchElement) => {
+  let count = 0
+  for (let element of array) {
+    if (element === searchElement) {
+      count++
+    }
+  }
+  return count
+}
+
+const count = countOccurances(moreNumbers, 1)
+console.log(count)
+
+// Exercise 6:
+
+// easy implementation
+
+// let getMax = (array) => {
+//   let highest = array.sort().pop()
+//   return highest
+// }
+
+// reduce method!
+const getMax = (array) =>
+  array.reduce((accumulator, currentValue) => {
+    if (currentValue > accumulator) {
+      return currentValue
+    }
+    return accumulator
+  }, 0)
+
+const max = getMax(moreNumbers)
+console.log(max)
+
+// Exercise 7: Movies
+
+const movies = [
+  { title: "a", year: 2018, rating: 4.5 },
+  { title: "b", year: 2018, rating: 4.7 },
+  { title: "c", year: 2018, rating: 3 },
+  { title: "d", year: 2017, rating: 4.5 },
+]
+
+const movieTitles = (array) => {
+  let movies = array.filter((movie) => {
+    if (movie.year === 2018 && movie.rating >= 4) return movie
+  })
+  let titles = movies
+    .map((movie) => movie.title)
+    .sort()
+    .reverse()
+  return titles
+}
+
+const newMovies = movieTitles(movies)
+console.log(newMovies)
